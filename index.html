@@ -1,27 +1,174 @@
-<!DOCTYPE html>
-<html lang="en">
+<!Doctype html>
+<html lang="zh-CN" style="font-size: calc(100vw/1536);">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-p1KAotb3W9ndluCsqePPYnjRm3c6abdnIjo0tQwYUv83VsbsYd43RuofnFAaDo0E" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>KKwarehouse</title>
+    <link rel="stylesheet" href="./css/index.css">
+
 </head>
 
 <body>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+    <div class="box starbgr">
+        <svg width="100%" height="100%" id="svg1"></svg>
+        <svg width="100%" height="100%" id="svg2"></svg>
+        <svg width="100%" height="100%" id="svg3"></svg>
+        <svg width="100%" height="100%" id="svg4"></svg>
+        <svg width="100%" height="100%" id="svg5"></svg>
+        <svg width="100%" height="100%" id="svg6"></svg>
+        <div class="comet"></div>
+    </div>
+    <div class="KK">
+        <div class="x-wrap">
+            <div class="x-bgr">
+                <div class="mask">
+                    <h1>欢迎来到 -我的世界-</h1>
+                </div>
+            </div>
+            <div class="x-work">
+                <div class="x-title">My Work</div>
+                <div class="lunbo">
+                    <ul class="stage">
+                        <a href="./案例/小蜜蜂/bee1.html"></a>
+                        <a href="./案例/mp3/MusicBox.html"></a>
+                        <a href="./案例/时钟/合并.html"></a>
+                        <a href="./案例/hw-别踩白块.html"></a>
+                        <a href="./案例/儿童bs4/child.html"></a>
+                        <a href="./案例/整容bs3/整形复做.html"></a>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        h1 {
-            font-size: 80px;
+
+
+    <script>
+        function rdm(x, y) {
+            return (Math.random() * (y - x) + x).toFixed(2);
         }
-    </style>
-    <h1>欢迎来到 -我的世界-</h1>
+        (function creStar() {
+            for (let i = 0; i < 30; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1.1,
+                });
+                $("#svg1").append(star);
+            }
+            for (let i = 0; i < 100; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1.1,
+                });
+                $("#svg2").append(star);
+            }
+            for (let i = 0; i < 100; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1,
+                });
+                $("#svg3").append(star);
+            }
+            for (let i = 0; i < 100; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1.1,
+                });
+                $("#svg4").append(star);
+            }
+            for (let i = 0; i < 30; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1.1,
+                });
+                $("#svg5").append(star);
+            }
+            for (let i = 0; i < 100; i++) {
+                let star = $(document.createElementNS("http://www.w3.org/2000/svg", "circle")).attr({
+                    cx: rdm(0, 100) + "%",
+                    cy: rdm(0, 100) + "%",
+                    r: 1,
+                });
+                $("#svg6").append(star);
+            }
+        })();
+
+
+
+
+        //轮播
+        function movement(jqmoveobj) {
+            let savex = 0;
+            let savey = 0;
+            obj = $(jqmoveobj)[0];
+            let movex;
+            let movey;
+            obj.onmousedown = function (event) {
+                let inipagex = event.pageX;//拿到一开始鼠标相对页面的位置
+                let inipagey = event.pageY;
+                console.log("down" + savex, savey);
+                document.body.onmousemove = function (e) {
+                    console.log(`move` + savex, savey);
+
+                    movex = (e.pageX - inipagex);//移动后的鼠标的位置相对于初始位置改变多少就旋转多少
+                    movey = (e.pageY - inipagey);
+                    obj.style.transform = "rotateX(" + (savey - movey) / 5 + "deg)" + "rotateY(" + (savex + movex) / 5 + "deg)";
+                    inipagex = event.pageX;//每次停下就初始化鼠标相对于页面的位置
+                    inipagey = event.pageY;
+                    savey = (- movey);
+                    savex = (movex);
+                    // console.log(savex, savey);
+                    // console.log("\ninipagex: " + inipagex + "   inipagey: " + inipagey + "\n\n   (movex): " + (movex / 5) + "      movey: " + (- movey) / 5 + "\n");
+                };
+            };
+
+            document.body.onmouseup = function () {
+                document.body.onmousemove = null;
+                console.log(`up  ` + savex, savey);
+                xx = savex;
+                yy = savey;
+
+            };
+        }
+        //去除li的默认操作
+        $(".lunbo a").mousedown(function (e) {
+            e.preventDefault();
+        });
+        $(".lunbo").mousedown(function (e) {
+            e.preventDefault();
+        });
+
+
+        // 加拖拽
+        movement($(".lunbo"));
+
+        var n = $(".lunbo a").length;
+        var y = $(".lunbo a").eq(1).width();
+        var zhou = Math.ceil(y / 2 / Math.tan(Math.PI / n));
+        console.log(zhou);
+        $(".lunbo a").each(function (i, ele) {
+            $(ele).css({
+                // "transform": `translateZ(-36px)`,
+                // "transform-origin": `center center ` + zhou * 1.2 + "px",
+                "transform": "rotateY(" + (i * 360 / n) + "deg)" + ` translateZ(` + zhou*1.5 + `rem)`,
+            });
+
+        })
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">
+    </script>
 </body>
 
 </html>
