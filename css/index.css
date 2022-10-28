@@ -163,6 +163,24 @@ body .starbgr svg {
 body .starbgr svg circle {
   fill: white;
 }
+body .starbgr #svg1 circle {
+  animation: twinkle 3s infinite linear alternate;
+}
+body .starbgr #svg2 circle {
+  animation: twinkle2 2s infinite linear alternate;
+}
+body .starbgr #svg3 circle {
+  animation: twinkle3 4s infinite linear alternate-reverse;
+}
+body .starbgr #svg6 circle {
+  animation: twinkle3 4s infinite linear alternate;
+}
+body .starbgr #svg4 circle {
+  animation: twinkle2 2s infinite linear alternate-reverse;
+}
+body .starbgr #svg5 circle {
+  animation: twinkle 3s infinite linear alternate-reverse;
+}
 @keyframes twinkle {
   0% {
     r: 1.3;
