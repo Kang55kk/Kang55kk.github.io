@@ -62,15 +62,19 @@ body .KK .x-work .main {
   box-shadow: 0 0 14rem 0rem #000000;
   padding: 30rem;
   border-radius: 10rem;
+  width: 600rem;
+}
+body .KK .x-work .main .class {
+  margin-top: 10rem;
 }
 body .KK .x-work .main .class h2 {
-  color: rgba(255, 255, 255, 0.916);
+  color: rgba(231, 231, 236, 0.916);
   font-size: 15rem;
   letter-spacing: 2rem;
   margin-bottom: 15rem;
   padding-bottom: 3rem;
   width: 100%;
-  border-bottom: 1rem solid rgba(255, 255, 255, 0.612);
+  border-bottom: 1rem solid rgba(132, 132, 132, 0.612);
 }
 body .KK .x-work .main .class ul {
   display: flex;
@@ -83,19 +87,22 @@ body .KK .x-work .main .class ul li {
 body .KK .x-work .main .class ul li a {
   background: center no-repeat;
   background-size: cover !important;
-  width: 200rem;
-  height: 110rem;
+  width: 156rem;
+  height: 80rem;
   display: block;
   opacity: 0.8;
   border-radius: 5rem;
 }
 body .KK .x-work .main .class ul li h3 {
-  color: rgba(255, 255, 255, 0.964);
+  color: rgba(210, 199, 199, 0.964);
   font-size: 13rem;
   margin-top: 8rem;
   width: 100%;
   text-align: center;
   letter-spacing: 2rem;
+}
+body .KK .x-work .main .class ul li:nth-last-child(1) {
+  margin-right: 0;
 }
 body .KK .x-work .main .class1 .item1 {
   background: url('../img/整容.jpg');
@@ -103,18 +110,33 @@ body .KK .x-work .main .class1 .item1 {
 body .KK .x-work .main .class1 .item2 {
   background: url('../img/儿童中心.jpg');
 }
-body .KK .x-work .main .class1 li:nth-last-child(1) {
-  margin-right: 0;
-}
 body .KK .x-work .main .class2 .item1 {
   background: url('../img/小蜜蜂.jpg');
 }
 body .KK .x-work .main .class2 .item2 {
   background: url('../img/时钟.jpg');
-  background-position: -20px 0;
+  background-position: -10px 0;
 }
-body .KK .x-work .main .class2 li:nth-last-child(1) {
-  margin-right: 0;
+body .KK .x-work .main .class2 .item3 {
+  background: url('../img/王者手风琴.jpg');
+}
+body .KK .x-work .main .class3 .item1 {
+  background: url('../img/MP3.jpg');
+}
+body .KK .x-work .main .class4 .item1 {
+  background: url('../img/海绵宝宝.jpg');
+}
+body .KK .x-work .main .class4 .item2 {
+  background: url('../img/别踩白块.jpg');
+}
+body .KK .x-work .main .class5 .item1 {
+  background: url('../img/三级联动.jpg');
+}
+body .KK .x-work .main .class5 .item2 {
+  background: url('../img/九宫格抽奖.jpg');
+}
+body .KK .x-work .main .class5 .item3 {
+  background: url('../img/卡片记忆.jpg');
 }
 body .starbgr {
   width: 100vw;
