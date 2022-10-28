@@ -27,12 +27,12 @@
 
   <body>
     <div class="box starbgr">
-      <!-- <svg width="100%" height="100%" id="svg1"></svg>
+      <svg width="100%" height="100%" id="svg1"></svg>
       <svg width="100%" height="100%" id="svg2"></svg>
       <svg width="100%" height="100%" id="svg3"></svg>
       <svg width="100%" height="100%" id="svg4"></svg>
       <svg width="100%" height="100%" id="svg5"></svg>
-      <svg width="100%" height="100%" id="svg6"></svg> -->
+      <svg width="100%" height="100%" id="svg6"></svg>
       <!-- <div class="comet"></div> -->
     </div>
     <div class="KK">
@@ -55,94 +55,41 @@
                     </ul>
                 </div> -->
           <div class="main">
-            <div class="demo">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-offset-3 col-md-6">
-                    <div class="tab" role="tabpanel">
-                      <!-- Nav tabs -->
-                      <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                          <a
-                            href="#Section1"
-                            aria-controls="home"
-                            role="tab"
-                            data-toggle="tab"
-                            >响应式排版</a
-                          >
-                        </li>
-                        <li role="presentation">
-                          <a
-                            href="#Section2"
-                            aria-controls="profile"
-                            role="tab"
-                            data-toggle="tab"
-                            >CSS 3</a
-                          >
-                        </li>
-                        <li role="presentation">
-                          <a
-                            href="#Section3"
-                            aria-controls="messages"
-                            role="tab"
-                            data-toggle="tab"
-                            >HTML5</a
-                          >
-                        </li>
-                      </ul>
-                      <!-- Tab panes -->
-                      <div class="tab-content tabs">
-                        <div
-                          role="tabpanel"
-                          class="tab-pane fade in active"
-                          id="Section1"
-                        >
-                          <!-- <h3>Section 1</h3> -->
-                          <ul class="class">
-                            <li class="item">
-                              <a href="./案例/整容bs3/整形复做.html"></a>
-                              <h3 class="title">整形医院排版</h3>
-                            </li>
-                            <li class="item">
-                              <a href="./案例/儿童bs4/child.html"></a>
-                              <h3 class="title">儿童中心排版</h3>
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          role="tabpanel"
-                          class="tab-pane fade"
-                          id="Section2"
-                        >
-                          <ul class="class">
-                            <li class="item">
-                              <a href="./案例/整容bs3/整形复做.html"></a>
-                              <h3 class="title">时钟</h3>
-                            </li>
-                            <li class="item">
-                              <a href="./案例/小蜜蜂/bee.html"></a>
-                              <h3 class="title">小蜜蜂</h3>
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          role="tabpanel"
-                          class="tab-pane fade"
-                          id="Section3"
-                        >
-                        <ul class="class">
-                          <li class="item">
-                            <a href="./案例/mp3/MusicBox.html"></a>
-                            <h3 class="title">MP3播放器</h3>
-                          </li>
-                          
-                        </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="class class1">
+              <h2>响应式排版</h2>
+              <ul>
+                <li>
+                  <a class="item1" href="./案例/整容bs3/整形复做.html"></a>
+                  <h3>整形医院</h3>
+                </li>
+                <li>
+                  <a class="item2" href="./案例/儿童bs4/child.html"></a>
+                  <h3>儿童中心</h3>
+                </li>
+              </ul>
+            </div>
+            <div class="class class2">
+              <h2>CSS3</h2>
+              <ul>
+                <li>
+                  <a class="item1" href="./案例/小蜜蜂/bee.html"></a>
+                  <h3>小蜜蜂</h3>
+                </li>
+                <li>
+                  <a class="item2" href="./案例/时钟/时钟2.html"></a>
+                  <h3>时钟</h3>
+                </li>
+              </ul>
+            </div>
+            <div class="class class2">
+              <h2>CSS3</h2>
+              <ul>
+                <li>
+                  <a class="item" href="./案例/小蜜蜂/bee.html"></a>
+                  <h3>小蜜蜂</h3>
+                </li>
+                
+              </ul>
             </div>
           </div>
         </div>
@@ -281,7 +228,7 @@
       const CreateComet = function () {
         this.node = document.createElement("div");
         let x = 0;
-        let y = 20;
+        let y = 60;
         let deg = rdm(185, 210);
         // let deg = 200;
         let opc = 1;
@@ -294,7 +241,7 @@
         setInterval(() => {
           x += 10;
           y += 10 * Math.tan((deg / 360) * 2 * Math.PI);
-          opc -= 0.02;
+          opc -= 0.005;
           $(this.node).css({
             left: x,
             top: y,
@@ -303,7 +250,7 @@
         }, 16);
         setTimeout(() => {
           $(this.node).remove();
-        }, 3000);
+        }, 5000);
       };
       const CreateComet2 = function () {
         this.node = document.createElement("div");
@@ -322,7 +269,7 @@
         setInterval(() => {
           x += 10;
           y += 10 * Math.tan((deg / 360) * 2 * Math.PI);
-          opc -= 0.01;
+          opc -= 0.005;
           $(this.node).css({
             right: x,
             top: -y,
@@ -331,7 +278,7 @@
         }, 16);
         setTimeout(() => {
           $(this.node).remove();
-        }, 3000);
+        }, 5000);
       };
 
       const New1 = () => {
@@ -345,13 +292,9 @@
       // New1();
       // setInterval(() => {
       //   New1();
-      // }, 3000);
+      // }, 5000);
     </script>
 
-    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

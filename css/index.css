@@ -59,132 +59,64 @@ body .KK .x-work .x-title {
 }
 body .KK .x-work .main {
   margin-top: 20rem;
+  box-shadow: 0 0 14rem 0rem #000000;
+  padding: 30rem;
+  border-radius: 10rem;
 }
-body .KK .x-work .main .demo {
-  background-color: #fffcfc1c;
-  padding: 1.5em 0;
-  border-radius: 15rem;
-  padding: 30rem 0;
-  box-shadow: 0 0 41rem 5rem grey;
+body .KK .x-work .main .class h2 {
+  color: rgba(255, 255, 255, 0.916);
+  font-size: 15rem;
+  letter-spacing: 2rem;
+  margin-bottom: 15rem;
+  padding-bottom: 3rem;
+  width: 100%;
+  border-bottom: 1rem solid rgba(255, 255, 255, 0.612);
 }
-body .KK .x-work .main a:hover,
-body .KK .x-work .main a:focus {
-  outline: none;
-  text-decoration: none;
-}
-body .KK .x-work .main nav-tabs {
-  position: relative;
-  border-bottom: 0 none;
-}
-body .KK .x-work .main .nav-tabs li {
-  text-align: center;
-}
-body .KK .x-work .main .nav-tabs li a {
-  display: block;
-  height: 70px;
-  line-height: 65px;
-  background: linear-gradient(165deg, transparent 29%, #908a78 30%);
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  text-transform: uppercase;
-  margin-right: 0;
-  border-radius: 0;
-  border: none;
-  position: relative;
-  transition: all 0.5s ease 0s;
-}
-body .KK .x-work .main .tab .nav-tabs li.active a,
-body .KK .x-work .main .tab .nav-tabs li a:hover {
-  background: linear-gradient(165deg, transparent 29%, #efe8d5 30%);
-  border: none;
-  color: #908a78;
-}
-body .KK .x-work .main .nav-tabs li a:before {
-  content: "";
-  height: 70px;
-  line-height: 90px;
-  border-bottom: 70px solid rgba(0, 0, 0, 0.1);
-  border-right: 10px solid transparent;
-  position: absolute;
-  top: 0;
-  left: 100%;
-  z-index: 1;
-}
-body .KK .x-work .main .tab .tab-content {
-  font-size: 14px;
-  color: #6f6c6c;
-  line-height: 26px;
-  padding: 20px;
-}
-body .KK .x-work .main .tab .tab-content h3 {
-  font-size: 24px;
-  color: #6f6c6c;
-  margin-top: 0;
-}
-body .KK .x-work .main .tab .tab-content p {
-  margin-bottom: 0;
-}
-@media only screen and (max-width: 480px) {
-  body .KK .x-work .main .tab .nav-tabs li {
-    width: 33%;
-    margin-bottom: 8px;
-  }
-  body .KK .x-work .main .tab .nav-tabs li:last-child {
-    margin-bottom: 0;
-  }
-  body .KK .x-work .main .tab .nav-tabs li a:before {
-    border: none;
-  }
-  body .KK .x-work .main .tab .nav-tabs li a {
-    font-size: 0.8em;
-  }
-}
-body .KK .x-work .main .nav-tabs li {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 100%;
-}
-body .KK .x-work .main ul.class {
+body .KK .x-work .main .class ul {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
 }
-body .KK .x-work .main ul.class li.item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+body .KK .x-work .main .class ul li {
   margin-right: 20rem;
-  width: 230rem;
+  margin-bottom: 10rem;
 }
-body .KK .x-work .main ul.class li.item a {
-  height: 130rem;
-  width: 100%;
-  display: block;
+body .KK .x-work .main .class ul li a {
+  background: center no-repeat;
   background-size: cover !important;
+  width: 200rem;
+  height: 110rem;
+  display: block;
+  opacity: 0.8;
+  border-radius: 5rem;
 }
-body .KK .x-work .main ul.class li.item h3.title {
-  padding-top: 15rem;
-  font-size: 15rem;
-  color: white;
+body .KK .x-work .main .class ul li h3 {
+  color: rgba(255, 255, 255, 0.964);
+  font-size: 13rem;
+  margin-top: 8rem;
+  width: 100%;
+  text-align: center;
+  letter-spacing: 2rem;
 }
-body .KK .x-work .main #Section1 li:nth-child(1) a {
-  background: url('../img/整容.jpg') center no-repeat;
+body .KK .x-work .main .class1 .item1 {
+  background: url('../img/整容.jpg');
 }
-body .KK .x-work .main #Section1 li:nth-child(2) a {
-  background: url('../img/儿童中心.jpg') center no-repeat;
+body .KK .x-work .main .class1 .item2 {
+  background: url('../img/儿童中心.jpg');
 }
-body .KK .x-work .main #Section2 li:nth-child(1) a {
-  background: url('../img/时钟.jpg') center no-repeat;
+body .KK .x-work .main .class1 li:nth-last-child(1) {
+  margin-right: 0;
 }
-body .KK .x-work .main #Section2 li:nth-child(2) a {
-  background: url('../img/小蜜蜂.jpg') center no-repeat;
+body .KK .x-work .main .class2 .item1 {
+  background: url('../img/小蜜蜂.jpg');
 }
-body .KK .x-work .main #Section3 li:nth-child(1) a {
-  background: url('../img/MP3.jpg') center no-repeat;
+body .KK .x-work .main .class2 .item2 {
+  background: url('../img/时钟.jpg');
+  background-position: -20px 0;
 }
-.starbgr {
+body .KK .x-work .main .class2 li:nth-last-child(1) {
+  margin-right: 0;
+}
+body .starbgr {
   width: 100vw;
   height: 100vh;
   background-image: linear-gradient(#000000, #1f1f3a, #3b2f4a);
@@ -194,39 +126,20 @@ body .KK .x-work .main #Section3 li:nth-child(1) a {
   z-index: -1;
   opacity: 1;
 }
-.starbgr .comet {
+body .starbgr .comet {
   position: absolute;
   width: 200rem;
   height: 2rem;
   border-radius: 20% 20% / 50% 50%;
   background-image: linear-gradient(90deg, #cccbcb 0%, #3434346c);
-  transform: rotate(12deg);
 }
-.starbgr svg {
+body .starbgr svg {
   position: absolute;
   left: 0;
   top: 0;
 }
-.starbgr svg circle {
+body .starbgr svg circle {
   fill: white;
-}
-.starbgr #svg1 circle {
-  animation: twinkle 3s infinite linear alternate;
-}
-.starbgr #svg2 circle {
-  animation: twinkle2 2s infinite linear alternate;
-}
-.starbgr #svg3 circle {
-  animation: twinkle3 4s infinite linear alternate-reverse;
-}
-.starbgr #svg6 circle {
-  animation: twinkle3 4s infinite linear alternate;
-}
-.starbgr #svg4 circle {
-  animation: twinkle2 2s infinite linear alternate-reverse;
-}
-.starbgr #svg5 circle {
-  animation: twinkle 3s infinite linear alternate-reverse;
 }
 @keyframes twinkle {
   0% {
@@ -258,7 +171,7 @@ body .KK .x-work .main #Section3 li:nth-child(1) a {
     opacity: 0.2;
   }
 }
-.lunbo {
+body .lunbo {
   width: 100vw;
   height: 70vh;
   display: flex;
@@ -266,7 +179,7 @@ body .KK .x-work .main #Section3 li:nth-child(1) a {
   align-items: center;
   transform-style: preserve-3d;
 }
-.lunbo ul {
+body .lunbo ul {
   transform-style: preserve-3d;
   position: relative;
   /* transform-origin:center center 172rem ; */
@@ -274,7 +187,7 @@ body .KK .x-work .main #Section3 li:nth-child(1) a {
   height: 200rem;
   transform: rotateX(5deg);
 }
-.lunbo a {
+body .lunbo a {
   opacity: 0.8;
   width: 350rem;
   height: 200rem;
@@ -286,22 +199,22 @@ body .KK .x-work .main #Section3 li:nth-child(1) a {
   background-size: cover;
   background-position: center;
 }
-.lunbo a:nth-child(1) {
+body .lunbo a:nth-child(1) {
   background-image: url('../img/微信图片_20220912180011.jpg');
 }
-.lunbo a:nth-child(2) {
+body .lunbo a:nth-child(2) {
   background-image: url('../img/MP3.jpg');
 }
-.lunbo a:nth-child(3) {
+body .lunbo a:nth-child(3) {
   background-image: url('../img/时钟.jpg');
 }
-.lunbo a:nth-child(4) {
+body .lunbo a:nth-child(4) {
   background-image: url('../img/别踩白块.jpg');
 }
-.lunbo a:nth-child(5) {
+body .lunbo a:nth-child(5) {
   background-image: url('../img/儿童中心.jpg');
 }
-.lunbo a:nth-child(6) {
+body .lunbo a:nth-child(6) {
   background-image: url('../img/整容.jpg');
 }
 /*# sourceMappingURL=./index.css.map */
