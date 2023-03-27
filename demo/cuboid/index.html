@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机积木</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        html {
+            background-image: url("./myWorld.jpg");
+            width: 100vw;
+            overflow: hidden;
+            height: 100vh;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function movement2(moveElementJqObj, axis1 = "x", axis2 = "z", axis1Df = 60, axis2Df = 0, axis1ZF = true, axis2ZF = true) {
+            axis1 = axis1.toUpperCase();
+            axis2 = axis2.toUpperCase();
+            function zhengze(str) {//拿到偏转角度的值
+                var result = str.match(/\(([^)]*)de/);
+                if (result) {
+                    return Number(result[1]);
+                }
+            }
+            window.savex = 0;
+            window.savey = 0;
+            window.initMove = true;
+
+            let equipment = (() => {
+                let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+                return str;
+            })();
+            if (equipment == "pc") {
+                var down = "onmousedown";
+                var move = "onmousemove";
+                var up = "onmouseup";
+            } else {
+                var down = "ontouchstart";
+                var move = "ontouchmove";
+                var up = "ontouchend";
+            }
+
+
+            document.body[down] = function (event) {
+                if (equipment == "app") {
+                    event = event.changedTouches[0];
+                }
+                let inipagex = event.pageX; //拿到一开始鼠标相对页面的位置
+                let inipagey = event.pageY;
+                document.body[move] = function (e) {
+                    if (equipment == "app") {
+                        e = e.changedTouches[0];
+                    }
+
+
+                    let movex = e.pageX - inipagex;
+                    let movey = e.pageY - inipagey;
+                    let realMovex = ((-movey / 3) + savey) % 360;
+                    let rearMovey = (-((movex / 3) - savex)) % 360;
+                    if (window.initMove) {
+                        console.log(window.initMove);
+                        realMovex = realMovex + (axis1Df || 0);
+                        rearMovey = rearMovey + (axis2Df || 0);
+                    }
+                    moveElementJqObj[0].style.transform = `rotate${axis1}(${realMovex}deg) rotate${axis2}(${rearMovey}deg)`;
+                    inipagex = event.pageX;
+                    inipagey = event.pageY;
+                };
+            };
+
+            document.body[up] = function () {
+                window.initMove = false;
+
+                document.body[move] = null;
+                //保存旋转角度
+                let str = moveElementJqObj.parent()[0].innerHTML;
+                let arr = str.split(`rotate${axis2}`);
+                arr.forEach((e, i) => {
+                    i == 0 ? savey = zhengze(e) : "";
+                    i == 1 ? savex = zhengze(e) : "";
+                });
+            };
+        }
+
+
+        var jqArrToJsArr = function (jqobjArr) {
+            //jq对象数组转换成dom数组
+            let times = jqobjArr.length
+            let tempArr = []
+            for (let index = 0; index < times; index++) {
+                tempArr.push(jqobjArr[index])
+            }
+            return tempArr
+        }
+        var box = $(".box222");
+
+
+        function create() {
+            let arr = []
+            jqArrToJsArr($("input")).forEach(e => {
+                arr.push(e.value)
+            });
+            cuboid(arr[0], arr[1], arr[2], $(".box222"), "baba", arr[3], arr[4], arr[5], arr[6])
+        }
+        function color16() {//十六进制颜色随机    
+            return '#' + Math.random().toString(16).substr(2, 6)
+        }
+        var box2 = $(".box111");
+
+        function movement(moveobj) {
+            box = $(moveobj)[0];
+            var savex = 0;
+            var savey = 0;
+            document.body.onmousedown = function (event, e) {
+                var inipagex = event.pageX;
+                var inipagey = event.pageY;
+                document.body.onmousemove = function (e) {
+                    var movex = e.pageX - inipagex;
+                    var movey = e.pageY - inipagey;
+                    // box.style.transform = "rotateX(" + (savey - movey) / 100 + "deg)" + "rotatey(" + (savex + movex) / 100 + "deg)"
+                    box.style.transform = "rotateX(" + ((savey - movey) / 100 + 60) + "deg)" + "rotatez(" + (-(savex +
+                        movex)) / 100 + "deg)";
+                    savex = (savex + movex);
+                    savey = (savey - movey);
+                    movex = 0;
+                    movey = 0;
+                };
+            };
+
+            document.body.onmouseup = function () {
+                document.body.onmousemove = null;
+            };
+        }
+        movement2(box);
+
+
+        cuboid(20, 23, 50, $(".box222"))
+    </script>
+
+</body>
+
+</html>

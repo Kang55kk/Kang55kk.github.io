@@ -1,0 +1,243 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DIV+JS三级联动效果</title>
+	<script src="js/jquery-1.7.2.min.js"></script>
+</head>
+
+<style type="text/css">
+	html {
+		overflow: hidden;
+		background: #fff;
+		width: 100%;
+		height: 100%;
+	}
+
+	html,
+	body,
+	div,
+	dl,
+	dt,
+	dd,
+	ul,
+	ol,
+	li,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	pre,
+	form,
+	fieldset,
+	input,
+	textarea,
+	p,
+	blockquote,
+	th,
+	td {
+		margin: 0;
+		padding: 0;
+	}
+
+	body {
+		font-family: "微软雅黑";
+		font-size: 12rem;
+		color: #000000;
+		background: #fff;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+		display: flex;
+            justify-content: center;
+            align-items: flex-start;
+	}
+
+	#sjld{
+		transform: scale(2);
+		display: flex;
+            justify-content: center;
+            align-items: center;
+    }
+
+	button,
+	input,
+	select,
+	textarea {
+		font: 12rem/1.5 Arial, "宋体", Helvetica, Verdana, sans-serif;
+		word-wrap: break-word;
+		color: #565756;
+	}
+
+	ul,
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-weight: normal;
+		font-size: 100%;
+	}
+
+	img {
+		border: none;
+		border: 0;
+		vertical-align: middle;
+	}
+
+	a {
+		text-decoration: none;
+		outline: none;
+	}
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	input,
+	select,
+	textarea {
+		vertical-align: middle;
+		*font-size: 100%;
+	}
+
+	input {
+		margin: 0;
+		outline: none;
+		padding: 0;
+	}
+
+	input::-ms-clear {
+		display: none;
+	}
+
+	.clearfix:after {
+		content: ".";
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+
+	}
+
+	.clearfix {
+		*zoom: 1
+	}
+
+	/* m_zlxg */
+	.m_zlxg {
+		width: 93rem;
+		height: 30rem;
+		line-height: 30rem;
+		cursor: pointer;
+		float: left;
+		margin: 0 10rem 0 0;
+		display: inline;
+		background: url(images/zlxg2.jpg) no-repeat;
+	}
+
+	.m_zlxg p {
+		width: 71rem;
+		padding-left: 10rem;
+		overflow: hidden;
+		line-height: 30rem;
+		color: #333333;
+		font-size: 12rem;
+		font-family: "微软雅黑";
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.m_zlxg2 {
+		position: absolute;
+		top: 29rem;
+		border: 1rem solid #ded3c1;
+		background: #fff;
+		width: 91rem;
+		display: none;
+		max-height: 224rem;
+		-height: 224rem;
+		overflow-x: hidden;
+		overflow-y: auto;
+		white-space: nowrap;
+	}
+
+	.m_zlxg2 li {
+		line-height: 28rem;
+		white-space: nowrap;
+		padding-left: 10rem;
+		font-family: "微软雅黑";
+		color: #333333;
+		font-size: 12rem;
+	}
+
+	.m_zlxg2 li:hover {
+		color: #7a5a21;
+	}
+</style>
+
+<body>
+
+	<div id="sjld" style="width:520rem;margin:40rem auto;position:relative;">
+		<div class="m_zlxg" id="shenfen">
+			<p title="">选择省份</p>
+			<div class="m_zlxg2">
+				<ul></ul>
+			</div>
+		</div>
+		<div class="m_zlxg" id="chengshi">
+			<p title="">选择城市</p>
+			<div class="m_zlxg2">
+				<ul></ul>
+			</div>
+		</div>
+		<div class="m_zlxg" id="quyu">
+			<p title="">选择区域</p>
+			<div class="m_zlxg2">
+				<ul></ul>
+			</div>
+		</div>
+		<input id="sfdq_num" type="hidden" value="" />
+		<input id="csdq_num" type="hidden" value="" />
+		<input id="sfdq_tj" type="hidden" value="" />
+		<input id="csdq_tj" type="hidden" value="" />
+		<input id="qydq_tj" type="hidden" value="" />
+	</div>
+
+	<script type="text/javascript" src="js/address.js"></script>
+	<script type="text/javascript">
+		document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+		window.addEventListener("resize", (e) => {
+			document.documentElement.style.fontSize = `calc(100vw / ${document.body.clientWidth})`;
+		});
+
+
+		//判断手机端还是PC端,html文件
+		function judge() {
+			let str = (navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)) ? 'app' : 'pc';
+			return str;
+		}//点击复制,uniapp
+
+
+		$(function () {
+
+			$("#sjld").sjld("#shenfen", "#chengshi", "#quyu");
+
+		});
+	</script>
+
+</body>
+
+</html>

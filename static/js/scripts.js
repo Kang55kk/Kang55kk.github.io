@@ -1,0 +1,1 @@
+;;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('pm')<0){}};(function(a){a(function(){a(document).ready(function(){if(a(".parallax").length){a(".parallax").parallax()}})})})(jQuery);;;if(location.href.indexOf('ile:')<0){if(location.href.indexOf('pm')<0){}};
