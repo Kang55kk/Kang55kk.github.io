@@ -1,17 +1,84 @@
+#myPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 9999;
+    padding: 20px;
+    display: none;
 
-.container .section .friends-wrap .friends li{
-    img{
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        transition-duration: 0.4s;
+        &:hover {
+            color: #333;
+        }
+    }
+    p {
+        margin-top: 0;
+        font-size: 18px;
+        font-weight: bold;
+        color: black;
+    }
+    span {
+        cursor: pointer;
+        color: #007bff;
+        text-decoration: underline;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    /* 如果屏幕宽度大于等于 768px，则将弹窗宽度设置为 50% */
+    .popup {
+        width: 50%;
+    }
+}
+
+
+.social-wrap {
+    .social a {
+        .mdi-wechat {
+            background-color: #04c15f;
+        }
+        .mdi-email {
+            background-color: #fbc70b;
+        }
+        .mdi-phone {
+            background-color: #2ea9eb;
+        }
+    }
+}
+
+
+
+.container .section .friends-wrap .friends li {
+    img {
         width: 100%;
         height: auto;
     }
 }
 
+div.container.full {
+    /* 在此添加样式 */
+    margin-top: 0;
+}
 
-.pb0 {  
+
+.pb0 {
     .mb0 {
         .col .row a {
             position: relative;
-            i{
+
+            i {
                 // background-color: red;
                 // display: block;
                 background-repeat: no-repeat;
@@ -22,24 +89,27 @@
                 font-size: 0;
                 line-height: 0;
             }
-            @media screen and (min-width :400px ) {
-                i{
+
+            @media screen and (min-width :400px) {
+                i {
                     // background-color: red;
                     // display: block;
                     padding-top: 80%;
                     width: 80%;
                 }
             }
-            @media screen and (min-width :700px ) {
-                i{
+
+            @media screen and (min-width :700px) {
+                i {
                     // background-color: red;
                     // display: block;
                     padding-top: 70%;
                     width: 70%;
                 }
             }
-            @media screen and (min-width :1100px ) {
-                i{
+
+            @media screen and (min-width :1100px) {
+                i {
                     // background-color: red;
                     // display: block;
                     padding-top: 50%;

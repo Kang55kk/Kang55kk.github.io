@@ -1,6 +1,61 @@
+#myPopup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  padding: 20px;
+  display: none;
+}
+#myPopup .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  transition-duration: 0.4s;
+}
+#myPopup .close:hover {
+  color: #333;
+}
+#myPopup p {
+  margin-top: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+}
+#myPopup span {
+  cursor: pointer;
+  color: #007bff;
+  text-decoration: underline;
+}
+@media screen and (min-width: 768px) {
+  /* 如果屏幕宽度大于等于 768px，则将弹窗宽度设置为 50% */
+  .popup {
+    width: 50%;
+  }
+}
+.social-wrap .social a .mdi-wechat {
+  background-color: #04c15f;
+}
+.social-wrap .social a .mdi-email {
+  background-color: #fbc70b;
+}
+.social-wrap .social a .mdi-phone {
+  background-color: #2ea9eb;
+}
 .container .section .friends-wrap .friends li img {
   width: 100%;
   height: auto;
+}
+div.container.full {
+  /* 在此添加样式 */
+  margin-top: 0;
 }
 .pb0 .mb0 .col .row a {
   position: relative;

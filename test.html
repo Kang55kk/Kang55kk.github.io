@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>3D爱心立体旋转</title>
+	<style>
+
+		.container {
+			position: relative;
+			perspective: 800px;
+			width: 200px;
+			height: 200px;
+			margin: 50px auto;
+		}
+
+		.heart {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotateY(-60deg) rotateX(45deg);
+			transform-style: preserve-3d;
+		}
+
+		.heart:before,
+		.heart:after {
+			position: absolute;
+			content: "";
+			color: pink;
+			background-color: pink;
+		}
+
+		.heart:before {
+			width: 100px;
+			height: 100px;
+			border-radius: 50px 50px 0 0;
+			top: 0;
+			left: 0;
+			transform: rotateZ(45deg);
+		}
+
+		.heart:after {
+			width: 100px;
+			height: 100px;
+			border-radius: 50px 50px 0 0;
+			top: 0;
+			right: 0;
+			transform: rotateZ(-45deg);
+		}
+
+		.animate {
+			animation: rotate 5s ease-in-out infinite;
+		}
+
+		@keyframes rotate {
+			from {
+				transform: translate(-50%, -50%) rotateY(-60deg) rotateX(45deg);
+			}
+			to {
+				transform: translate(-50%, -50%) rotateY(300deg) rotateX(405deg);
+			}
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="heart animate"></div>
+	</div>
+
+	<script>
+		window.onload = function() {
+			var heart = document.querySelector(".heart");
+			heart.addEventListener("mouseover", function() {
+				heart.classList.remove("animate");
+			});
+			heart.addEventListener("mouseout", function() {
+				heart.classList.add("animate");
+			});
+		};
+	</script>
+
+</body>
+</html>

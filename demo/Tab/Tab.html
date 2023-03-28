@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>选项卡</title>
+    <link rel="stylesheet" href="./choise.css">
+    <style>
+        *{
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="choise" class="choise">
+        <div class="wrap">
+            <div class="tag">
+                <span>公告</span>
+                <span>决定</span>
+                <span>会议</span>
+            </div>
+            <div class="text" style="box-sizing: border-box;padding:6rem;">
+                <p>1111111111111</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var choise = document.getElementById("choise")
+        var span = choise.getElementsByTagName("span");
+        var text = choise.getElementsByClassName("text")[0].getElementsByTagName("p");
+        textchange(0);
+        function textchange(d) {
+            if (d == 0) {
+                text[0].innerHTML = `有时候我觉得自己真的很懒，但是当我意识到自己并不是一个懒惰的人时，我就会休息一下。`;
+            } else {
+                if (d == 1) {
+                    text[0].innerHTML = "我已经等了这么久了，却发现我要等的不是公主，而是快递小哥。";
+                }
+                else{
+                    text[0].innerHTML = "如果有一天你觉得世界上没有爱情了，请记住，还有美食和迪士尼。";
+                }
+            }
+        }
+        for (var i = 0; i < span.length; i++) {
+            span[i].index = i;
+            span[i].onclick = function () {
+                textchange(Number(this.index));
+            }
+        }
+    </script>
+</body>
+</html>
