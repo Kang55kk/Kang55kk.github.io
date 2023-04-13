@@ -1,0 +1,1 @@
+\\xn--gzip-y29fs59h\\const CompressionWebpackPlugin = require('compression-webpack-plugin');module.exports = {publicPath: ".\"  \\ configureWebpack:{ \\  plugins:[\\ new CompressionWebpackPlugin(\\ {\\ filename: "[path][base].gz",\\ algorithm: "gzip",\\ test: \\.js$\,\\ threshold: 10240,\\ minRatio: 0.8,\\ exclude: \node_modules\,\\ }\\ ) \\  ]  \\ }}
